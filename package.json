@@ -5,9 +5,9 @@
   "builders": "builders.json",
   "description": "Hooks for the Angular CLI",
   "scripts": {
-    "build": "rimraf dist && tsc && node ./create-schemas.js",
+    "build": "rimraf dist && tsc && node create-schemas.js",
     "prepare": "npm run build",
-    "install": "node ./create-schemas.js",
+    "install": "node create-schemas.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -38,6 +38,7 @@
   },
   "files": [
     "dist",
+    "create-schemas.js",
     "builders.json",
     "src/**/schema.json"
   ]
