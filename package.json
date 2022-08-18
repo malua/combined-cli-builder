@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rimraf dist && tsc && node create-schemas.js",
     "prepare": "npm run build",
-    "install": "node create-schemas.js",
+    "install": "node ./create-schemas.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
