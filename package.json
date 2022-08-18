@@ -26,7 +26,6 @@
   "devDependencies": {
     "@angular-devkit/build-angular": ">12.0.1",
     "@types/node": "^16.11.9",
-    "ng-cli-hooks": "^13.0.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.2"
   },

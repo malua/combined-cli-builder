@@ -1,17 +1,27 @@
 import { BuilderContext, createBuilder } from "@angular-devkit/architect";
 import { json } from "@angular-devkit/core";
-import { executeBrowserBuilder } from "@angular-devkit/build-angular";
-import { BrowserBuilderSchema, buildBrowser } from "ng-cli-hooks";
+import {
+  BrowserBuilderOptions,
+  executeBrowserBuilder,
+} from "@angular-devkit/build-angular";
+import { modifyOptions, modifyWebpack, modifyIndexHtml } from "../modifiers";
+
+export interface BrowserBuilderSchema extends BrowserBuilderOptions {
+  webpackHook?: string;
+  indexHtmlHook?: string;
+  optionsHook?: string;
+}
 
 export function combinedBuildBrowser(
   options: BrowserBuilderSchema,
   context: BuilderContext
 ): ReturnType<typeof executeBrowserBuilder> {
-  const cliHooksOutput = buildBrowser(options, context);
-
-  return cliHooksOutput;
+  return executeBrowserBuilder(modifyOptions(options, context), context, {
+    webpackConfiguration: modifyWebpack(options, context),
+    indexHtml: modifyIndexHtml(options, context),
+  });
 }
 
 export default createBuilder<json.JsonObject & BrowserBuilderSchema>(
-  buildBrowser
+  combinedBuildBrowser
 );
