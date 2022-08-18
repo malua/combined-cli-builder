@@ -1,0 +1,19 @@
+{
+	"builders": {
+		"browser": {
+			"implementation": "./dist/browser",
+			"schema": "./dist/browser/schema.json",
+			"description": "Build a browser app."
+		},
+		"dev-server": {
+			"implementation": "./dist/dev-server",
+			"schema": "./dist/dev-server/schema.json",
+			"description": "Serve a browser app."
+		},
+		"server": {
+			"implementation": "./dist/server",
+			"schema": "./dist/server/schema.json",
+			"description": "Build a server Angular application."
+		}
+	}
+}

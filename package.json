@@ -1,0 +1,43 @@
+{
+  "name": "combined-cli-builders",
+  "version": "13.0.1",
+  "main": "dist",
+  "builders": "builders.json",
+  "description": "Hooks for the Angular CLI",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ng",
+    "angular",
+    "cli",
+    "angular-cli",
+    "builder",
+    "webpack",
+    "options",
+    "hook",
+    "hooks"
+  ],
+  "author": "Lukas Mayr",
+  "license": "MIT",
+  "devDependencies": {
+    "@angular-devkit/build-angular": ">12.0.1",
+    "@types/node": "^16.11.9",
+    "ng-cli-hooks": "^13.0.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.20"
+  },
+  "peerDependencies": {
+    "@angular-devkit/build-angular": ">12.0.1"
+  },
+  "files": [
+    "dist",
+    "builders.json",
+    "src/**/schema.json"
+  ]
+}
